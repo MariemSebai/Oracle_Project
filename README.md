@@ -1,30 +1,27 @@
 # Oracle-Project
 
-# ==> ** Voilà ce que résout ce projet ** <==
+You are given the following ADMMEDIC database diagram which represents visits to a new medical center.
 
+Medecin(matricule, nom_med, prenom_med, specialite),</br>
+Patient(noss,nom_pat, prenom_pat, nbpriseMax, quantiteMax),</br>
+Medicament(code_med, libelle),</br>
+Consultation(Num_consul, date_consult, #matricule, #noss),</br>
+Prescription(#code_med, #Num_consul, nbprise, quantite).</br>
 
-On vous donne le schéma de base de données ADMMEDIC suivant qui représente les visites dans un nouveau centre médical.
+Required work :
+Using Oracle as your database management system, you are asked to answer the following questions:
 
-Medecin(matricule, nom_med, prenom_med, specialite),<br/>
-Patient(noss,nom_pat, prenom_pat, nbpriseMax, quantiteMax),
-Medicament(code_med, libelle),<br/>
-Consultation(Num_consul, date_consult, #matricule, #noss),<br/>
-Prescription(#code_med, #Num_consul, nbprise, quantite).
-
-Travail demandé :
-En utilisant Oracle comme système de gestion de base des données, on vous demande de répondre aux questions suivantes :
-
-1. Création des tables.<br/>
-2. Remplissage des tables par des données fictives.<br/>
-3. Création des séquences et des trigger nécessaires pour l’alimentation des clés primaires des tables.<br/>
-4. Créer un trigger qui permet de vérifier lors de l’insertion d’une ligne dans la table Prescription, si le nbprise ou la quantite ne dépassent pas les valeurs maximales indiquées dans la table médicament. Si c’est le cas il faut afficher un message d’alarme pour notifier le médecin qu’il a dépassé les doses normales.<br/>
-5. Nous voulons créer un package contenant les fonctions et procédures suivantes :<br/>
-• Pour chaque table création d’une procédure PinsertNomTable qui prend en entrée autant de paramètres que d’attributs dans la table et permet d’insérer une nouvelle ligne dans cette dernière.<br/>
-• Pour chaque table création d’une procédure PUpdateNomTable qui prend en entrée autant de paramètres que d’attributs dans la table et permet de mettre-à-jours la ligne dont la clé-primaire correspond au numéro passé en paramètre.<br/>
-• Pour chaque table création d’une procédure PDeleteNomTable qui prend en entrée un nombre p_id et permet de supprimer la ligne dont la clé-primaire correspond au numéro p_id passé en paramètre.<br/>
-• Une procédure qui permet d’afficher la liste des noms et prénoms des médecins sachant leur spécialité.<br/>
-• Une fonction qui calcule et renvoie pour un médecin donné (dont la matricule est passée en paramètre) le pourcentage de consultation (PC) effectué par celui-ci ; sachant que PC est calculé comme suit : <br/> PC = nb_consultation_medecin/nb_consultations_total .<br/>
-• Une procédure qui permet d’afficher pour un patient donné (dont le numéro de sécurité sociale est passé en paramètre) la liste des noms des médecins avec lesquels il a fait des consultations et les dates des consultations. La liste doit être ordonnée dans l’ordre chronologique des consultations.<br/>
-• Une procédure qui permet d’afficher pour un patient donné (dont le numéro de sécurité sociale est passé en paramètre) la liste des médicaments qui lui ont été prescrit et leurs nombres de prises.<br/>
+1. Creation of tables. <br/>
+2. Filling the tables with fictitious data. <br/>
+3. Creation of the sequences and triggers necessary for supplying the primary keys of the tables. <br/>
+4. Create a trigger that allows you to check, when inserting a row in the Prescription table, whether the number or quantity does not exceed the maximum values ​​indicated in the medication table. If this is the case, an alarm message should be displayed to notify the doctor that he has exceeded normal doses. <br/>
+5. We want to create a package containing the following functions and procedures: <br/>
+• For each table creation of a PinsertTableName procedure which takes as input as many parameters as there are attributes in the table and allows a new row to be inserted in the latter. <br/>
+• For each table creation of a PUpdateNomTable procedure which takes as input as many parameters as there are attributes in the table and allows updating the row whose primary-key corresponds to the number passed as a parameter. <br/>
+• For each table, creation of a PDeleteNomTable procedure which takes as input a number p_id and allows deleting the row whose primary-key corresponds to the number p_id passed as a parameter. <br/>
+• A procedure that allows you to display the list of first and last names of physicians knowing their specialty. <br/>
+• A function which calculates and returns for a given doctor (whose number is passed in parameter) the percentage of consultation (PC) carried out by this one; knowing that PC is calculated as follows: <br/> PC = nb_consultation_medicin / nb_consultations_total. <br/>
+• A procedure which allows to display for a given patient (whose social security number is passed as a parameter) the list of the names of the doctors with whom he has made consultations and the dates of the consultations. The list should be ordered in chronological order of consultation. <br/>
+• A procedure that allows you to display for a given patient (whose social security number is passed as a parameter) the list of drugs that have been prescribed and their number of doses. <br/>
 NB
-- Dans toutes les fonctions et procédures il faut prévoir de programmer la partie gestion des exceptions.
+- In all functions and procedures it is necessary to plan to program the exception management part.
